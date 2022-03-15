@@ -1,0 +1,160 @@
+{
+  "name": "@mo36924/react-css",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/mo36924/react-css#readme",
+  "bugs": {
+    "url": "https://github.com/mo36924/react-css/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mo36924/react-css.git"
+  },
+  "license": "MIT",
+  "author": "mo36924",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "browser": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "browser": "./dist/*.js",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs",
+      "default": "./dist/*.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/index.js",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "run-s clean lint format build:*",
+    "build:rollup": "rollup -c --configPlugin typescript",
+    "clean": "del dist",
+    "format": "run-s format:*",
+    "format:sort-package-json": "sort-package-json",
+    "format:prettier": "prettier --write .",
+    "lint": "eslint --ext .ts,.tsx --fix .",
+    "test": "jest",
+    "prepublish": "run-s test build"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "plugins": [],
+    "rules": {
+      "padding-line-between-statements": [
+        "warn",
+        {
+          "blankLine": "always",
+          "prev": "import",
+          "next": "*"
+        },
+        {
+          "blankLine": "any",
+          "prev": "import",
+          "next": "import"
+        },
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": "export"
+        },
+        {
+          "blankLine": "any",
+          "prev": "export",
+          "next": "export"
+        },
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": [
+            "class",
+            "function",
+            "block",
+            "block-like",
+            "multiline-expression",
+            "multiline-const",
+            "multiline-let"
+          ]
+        },
+        {
+          "blankLine": "always",
+          "prev": [
+            "class",
+            "function",
+            "block",
+            "block-like",
+            "multiline-expression",
+            "multiline-const",
+            "multiline-let"
+          ],
+          "next": "*"
+        }
+      ]
+    },
+    "ignorePatterns": [
+      "**/dist/**"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/helper-plugin-utils": "^7.16.7",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@emotion/hash": "^0.8.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@types/babel__core": "^7.1.18",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
+    "@types/react": "^17.0.40",
+    "@types/stylis": "^4.0.2",
+    "@typescript-eslint/parser": "^5.15.0",
+    "del-cli": "^4.0.1",
+    "eslint": "^8.11.0",
+    "jest": "^27.5.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "rollup": "^2.70.1",
+    "rollup-plugin-dts": "^4.2.0",
+    "sort-package-json": "^1.54.0",
+    "stylis": "^4.0.13",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "@babel/core": ">=7.0.0",
+    "@babel/helper-plugin-utils": ">=7.0.0",
+    "@babel/plugin-syntax-jsx": ">=7.0.0",
+    "@emotion/hash": ">=0.0.0",
+    "@types/babel__core": ">=7.0.0",
+    "@types/react": ">=17.0.0",
+    "react": ">=17.0.0",
+    "stylis": ">=4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
