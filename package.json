@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/react-css",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/react-css#readme",
@@ -33,6 +33,7 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "browser": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [

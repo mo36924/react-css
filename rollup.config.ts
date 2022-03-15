@@ -39,7 +39,7 @@ export default defineConfig([
   },
   {
     input: {
-      "babel-plugin.ts": "src/babel-plugin.ts",
+      "babel-plugin": "src/babel-plugin.ts",
       index: "src/index.ts",
       "jsx-runtime": "src/jsx-runtime.ts",
       "jsx-dev-runtime": "src/jsx-dev-runtime.ts",
