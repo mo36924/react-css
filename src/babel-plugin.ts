@@ -54,23 +54,10 @@ export default declare<Options, PluginObj<PluginPass & { id?: string }>>((api, o
 
           if (_path.isExpression()) {
             _path.replaceWith(
-              t.sequenceExpression([
-                t.taggedTemplateExpression(
-                  t.identifier(id),
-                  t.templateLiteral([t.templateElement({ raw: css }, true)], []),
-                ),
-                _path.node,
-              ]),
+              t.sequenceExpression([t.callExpression(t.identifier(id), [t.stringLiteral(css)]), _path.node]),
             );
           } else {
-            _path.insertBefore(
-              t.expressionStatement(
-                t.taggedTemplateExpression(
-                  t.identifier(id),
-                  t.templateLiteral([t.templateElement({ raw: css }, true)], []),
-                ),
-              ),
-            );
+            _path.insertBefore(t.expressionStatement(t.callExpression(t.identifier(id), [t.stringLiteral(css)])));
           }
 
           return className;

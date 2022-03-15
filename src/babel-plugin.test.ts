@@ -9,7 +9,9 @@ describe("babel-plugin", () => {
   test("top-level", () => {
     expect(transform(`<div css={\`color: red; padding: 1px;\`}></div>;`)).toMatchInlineSnapshot(`
       "import { useCss as _useCss } from \\"@mo36924/react-css/css\\";
-      _useCss\`._1fq24nq{color:red;padding:1px;}\`;
+
+      _useCss(\\"._1fq24nq{color:red;padding:1px;}\\");
+
       <div className=\\"_1fq24nq\\"></div>;"
     `);
   });
@@ -18,7 +20,7 @@ describe("babel-plugin", () => {
     expect(transform(`() => <div css={\`color: red; padding: 1px;\`}></div>;`)).toMatchInlineSnapshot(`
       "import { useCss as _useCss } from \\"@mo36924/react-css/css\\";
 
-      () => (_useCss\`._1fq24nq{color:red;padding:1px;}\`, <div className=\\"_1fq24nq\\"></div>);"
+      () => (_useCss(\\"._1fq24nq{color:red;padding:1px;}\\"), <div className=\\"_1fq24nq\\"></div>);"
     `);
   });
 
@@ -27,7 +29,8 @@ describe("babel-plugin", () => {
       "import { useCss as _useCss } from \\"@mo36924/react-css/css\\";
 
       () => {
-        _useCss\`._1fq24nq{color:red;padding:1px;}\`;
+        _useCss(\\"._1fq24nq{color:red;padding:1px;}\\");
+
         const a = <div className=\\"_1fq24nq\\"></div>;
       };"
     `);
