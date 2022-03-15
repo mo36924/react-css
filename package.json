@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/react-css",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/react-css#readme",
@@ -36,7 +36,8 @@
   "typesVersions": {
     "*": {
       "*": [
-        "dist/*.d.ts"
+        "./dist/*.d.ts",
+        "*"
       ]
     }
   },
