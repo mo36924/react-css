@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/react-css",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/react-css#readme",
@@ -52,7 +52,7 @@
     "format:prettier": "prettier --write .",
     "lint": "eslint --ext .ts,.tsx --fix .",
     "test": "jest",
-    "prepublish": "run-s test build"
+    "prepublishOnly": "run-s test build"
   },
   "prettier": {
     "printWidth": 120,
