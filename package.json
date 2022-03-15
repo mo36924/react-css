@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/react-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/react-css#readme",
@@ -40,6 +40,9 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "run-s clean lint format build:*",
     "build:rollup": "rollup -c --configPlugin typescript",
