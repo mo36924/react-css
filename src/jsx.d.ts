@@ -11,7 +11,7 @@ declare namespace JSX {
   interface ElementClass extends globalThis.JSX.ElementClass {}
   interface ElementAttributesProperty extends globalThis.JSX.ElementAttributesProperty {}
   interface ElementChildrenAttribute extends globalThis.JSX.ElementChildrenAttribute {}
-  interface LibraryManagedAttributes<C, P> extends globalThis.JSX.LibraryManagedAttributes<C, P> {}
+  type LibraryManagedAttributes<C, P> = globalThis.JSX.LibraryManagedAttributes<C, P>;
   interface IntrinsicAttributes extends globalThis.JSX.IntrinsicAttributes {}
   interface IntrinsicClassAttributes<T> extends globalThis.JSX.IntrinsicClassAttributes<T> {}
   interface IntrinsicElements extends JSXIntrinsicElements {}
