@@ -1,11 +1,22 @@
-import { defineConfig } from "rollup";
-import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
 import nodeResolve from "@rollup/plugin-node-resolve";
+import typescript from "@rollup/plugin-typescript";
+import { parse } from "path";
+import { defineConfig } from "rollup";
+import dts from "rollup-plugin-dts";
+
+const input = [
+  "src/babel-plugin.ts",
+  "src/index.ts",
+  "src/jsx-dev-runtime.ts",
+  "src/jsx-runtime.ts",
+  "src/typescript-plugin.ts",
+];
+
+const typescriptPlugin = typescript();
 
 export default defineConfig([
   {
-    input: ["src/babel-plugin.ts", "src/index.ts", "src/jsx-dev-runtime.ts", "src/jsx-runtime.ts"],
+    input,
     output: [
       {
         dir: "dist",
@@ -22,10 +33,10 @@ export default defineConfig([
       },
     ],
     external: /^[@\w]/,
-    plugins: [typescript()],
+    plugins: [typescriptPlugin],
   },
   {
-    input: ["src/babel-plugin.ts", "src/index.ts", "src/jsx-dev-runtime.ts", "src/jsx-runtime.ts"],
+    input,
     output: [
       {
         dir: "dist",
@@ -35,15 +46,10 @@ export default defineConfig([
       },
     ],
     external: /^[@\w]/,
-    plugins: [typescript(), nodeResolve({ extensions: [".client.ts", ".ts"] })],
+    plugins: [typescriptPlugin, nodeResolve({ extensions: [".client.ts", ".ts"] })],
   },
   {
-    input: {
-      "babel-plugin": "src/babel-plugin.ts",
-      index: "src/index.ts",
-      "jsx-runtime": "src/jsx-runtime.ts",
-      "jsx-dev-runtime": "src/jsx-dev-runtime.ts",
-    },
+    input: Object.fromEntries(input.map((path) => [parse(path).name, path])),
     output: {
       dir: "dist",
     },
